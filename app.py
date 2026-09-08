@@ -239,7 +239,6 @@ energy = st.sidebar.number_input(texts["energy_label"], min_value=0.0, step=1.0,
 
 if st.sidebar.button(texts["predict_button"], type="primary", use_container_width=True):
     try:
-        # Locked order: Sodium, Protein, Energy. Unscaled pack values.
         input_data = np.array([[sodium, protein, energy]], dtype=float)
         input_scaled = scaler.transform(input_data)
         user_scaled_df = pd.DataFrame(input_scaled, columns=chart_names)
